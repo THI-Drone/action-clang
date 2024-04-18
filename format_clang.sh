@@ -11,11 +11,10 @@ commit_user_email=$4
 
 # check modified, added, or copied C++ files and format them
 echo "Formatting files..."
-for file in $(git diff --name-only --diff-filter=ACMR HEAD | grep -E '.cpp|.h'); do
+for file in $(find . -name "*.cpp" -o -name "*.cc" -o -name "*.cxx" -o -name "*.hpp" -o -name "*.hh" -o -name "*.h" -o -name "*.hxx" -o -name "*.c++"); do
   echo "Formatting: $file"
   clang-format -i $file
 done
-
 
 # decide whether to commit changes
 if [[ "$commit" == "true" ]]; then
