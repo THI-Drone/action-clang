@@ -13,7 +13,7 @@ commit_user_email=$4
 echo "Formatting files..."
 for file in $(git diff --name-only --diff-filter=ACMR HEAD | grep -E '.cpp|.h'); do
   echo "Formatting: $file"
-  clang-format -i -style=Google $file
+  clang-format -i $file
 done
 
 
