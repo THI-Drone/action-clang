@@ -1,29 +1,21 @@
 #!/bin/bash
 # inputs: 
-# $1: true to apply changes regarding formatting
-apply_changes=$1
-# $2: true commit the changes directly
-commit=$2
-# $3: commit message
-commit_msg=$3
-# $4: commit user name
-commit_user_name=$4
-# $5: commit user email
-commit_user_email=$5
+# $1: true commit the changes directly
+commit=$1
+# $2: commit message
+commit_msg=$2
+# $3: commit user name
+commit_user_name=$3
+# $4: commit user email
+commit_user_email=$4
 
-# function to check modified, added, or copied C++ files and format them
-format_files() {
-    echo "Formatting files..."
-    for file in $(git diff --name-only --diff-filter=ACMR HEAD | grep -E '.cpp|.h'); do
-      echo "Formatting: $file"
-      clang-format -i -style=Google $file
-    done
-}
+# check modified, added, or copied C++ files and format them
+echo "Formatting files..."
+for file in $(git diff --name-only --diff-filter=ACMR HEAD | grep -E '.cpp|.h'); do
+  echo "Formatting: $file"
+  clang-format -i -style=Google $file
+done
 
-# decide whether to format files
-if [[ "$apply_changes" == "true" ]]; then
-    format_files
-fi
 
 # decide whether to commit changes
 if [[ "$commit" == "true" ]]; then
