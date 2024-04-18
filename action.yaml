@@ -3,10 +3,6 @@ name: 'Clang-format'
 description: 'Clang-format the repository recursively to check or directly reformat your C++ project.'
 
 inputs:
-  apply-changes:
-    description: 'Specify whether to apply changes if standards not met or quit the workflow.'
-    required: false
-    default: false
   commit:
     description: 'Directly commit applied changes.'
     required: false
@@ -31,4 +27,4 @@ runs:
     run: |
       echo "${{ github.action_path }}" >> $GITHUB_PATH
   - shell: bash
-    run: format_clang.sh ${{ inputs.apply-changes }} ${{ inputs.commit }} ${{ inputs.commit-msg }} ${{ inputs.commit-user-name }} ${{ inputs.commit-user-email }}
+    run: format_clang.sh ${{ inputs.commit }} ${{ inputs.commit-msg }} ${{ inputs.commit-user-name }} ${{ inputs.commit-user-email }}
