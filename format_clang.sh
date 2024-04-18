@@ -32,5 +32,8 @@ else
     if [ -z "$(git status --porcelain)" ]; then
         echo "google style is not met"
         exit 1
+    else
+      echo "google style is met"
+      exit 0
     fi
 fi
