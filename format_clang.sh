@@ -30,10 +30,11 @@ if [[ "$commit" == "true" ]]; then
     git push origin HEAD:${GITHUB_REF}
 else
     if [ -z "$(git status --porcelain)" ]; then
-        echo "google style is not met"
-        exit 1
-    else
       echo "google style is met"
       exit 0
+    else
+        echo "google style is not met"
+        exit 1
+      
     fi
 fi
