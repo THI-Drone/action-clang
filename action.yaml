@@ -14,7 +14,7 @@ inputs:
   commit-msg:
     description: 'Commit message in case changes are applied.'
     required: false
-    default: 'autopep'
+    default: 'clang'
   commit-user-name:
     description: 'Git username of the commit.'
     required: false
