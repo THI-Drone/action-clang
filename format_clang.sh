@@ -29,7 +29,6 @@ if [[ "$commit" == "true" ]]; then
     git commit -m "$commit_msg"
     git push origin HEAD:${GITHUB_REF}
 else
-    git add .
     if [ -z "$(git status --porcelain)" ]; then
         echo "google style is not met"
         exit 1
